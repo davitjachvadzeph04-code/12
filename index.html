@@ -35,6 +35,7 @@
                 <!-- დესკტოპის მენიუ -->
                 <div class="desktop-menu flex space-x-4">
                     <button class="nav-btn px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-blue-800 transition-colors duration-200" data-section="home">მთავარი</button>
+                    <button class="nav-btn px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-blue-800 transition-colors duration-200" data-section="materials">სასწავლო მასალები</button>
                     <button class="nav-btn px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-blue-800 transition-colors duration-200" data-section="quiz">ქვიზი</button>
                     <button class="nav-btn px-3 py-2 rounded-md text-sm font-medium text-white hover:bg-blue-800 transition-colors duration-200" data-section="game">VR თამაში</button>
                 </div>
@@ -51,6 +52,7 @@
             <div class="mobile-nav-items">
                 <div class="px-2 pt-2 pb-3 space-y-1">
                     <button class="nav-btn w-full text-left px-3 py-2 rounded-md text-base font-medium text-white hover:bg-blue-800 transition-colors duration-200" data-section="home">მთავარი</button>
+                    <button class="nav-btn w-full text-left px-3 py-2 rounded-md text-base font-medium text-white hover:bg-blue-800 transition-colors duration-200" data-section="materials">სასწავლო მასალები</button>
                     <button class="nav-btn w-full text-left px-3 py-2 rounded-md text-base font-medium text-white hover:bg-blue-800 transition-colors duration-200" data-section="quiz">ქვიზი</button>
                     <button class="nav-btn w-full text-left px-3 py-2 rounded-md text-base font-medium text-white hover:bg-blue-800 transition-colors duration-200" data-section="game">VR თამაში</button>
                 </div>
@@ -78,6 +80,9 @@
                         </div>
                         <h2 class="text-xl font-bold mb-2">სასწავლო კურსები</h2>
                         <p class="text-gray-400">აღმოაჩინე კოსმოსის საიდუმლოებები</p>
+                        <button onclick="document.querySelector('[data-section=\"materials\"]').click()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition">
+                            სასწავლო მასალების ნახვა
+                        </button>
                     </div>
         
                     <div class="bg-blue-900/20 backdrop-blur-lg rounded-xl p-6 border border-blue-800 hover:bg-blue-800/30 transition">
@@ -89,6 +94,9 @@
                         </div>
                         <h2 class="text-xl font-bold mb-2">კოსმოსური თამაში</h2>
                         <p class="text-gray-400">იმოგზაურე სხვადასხვა პლანეტებზე</p>
+                        <button onclick="document.querySelector('[data-section=\"game\"]').click()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition">
+                            VR გალერეას ნახვა
+                        </button>
                     </div>
         
                     <div class="bg-blue-900/20 backdrop-blur-lg rounded-xl p-6 border border-blue-800 hover:bg-blue-800/30 transition">
@@ -99,6 +107,9 @@
                         </div>
                         <h2 class="text-xl font-bold mb-2">ქვიზები</h2>
                         <p class="text-gray-400">შეამოწმე შენი ცოდნა</p>
+                        <button onclick="document.querySelector('[data-section=\"quiz\"]').click()" class="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition">
+                            ქვიზის გავლა
+                        </button>
                     </div>
                 </div>
         

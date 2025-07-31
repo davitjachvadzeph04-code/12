@@ -45,6 +45,12 @@ function initNavigation() {
             if (sectionId === 'quiz') {
                 initQuiz();
             }
+            
+            // Initialize study materials if materials section is shown
+            if (sectionId === 'materials') {
+                initStudyMaterialsPage();
+                updateCourseStatus();
+            }
         });
     });
 }
@@ -610,20 +616,6 @@ function showNotification(message, type = 'info') {
     }, 3000);
 }
 
-// Load user data and update navigation
-function loadUserData() {
-    const userData = localStorage.getItem('astrobrain_user');
-    const registeredCoursesData = localStorage.getItem('astrobrain_registered_courses');
-    
-    if (userData) {
-        currentUser = JSON.parse(userData);
-    }
-    
-    if (registeredCoursesData) {
-        registeredCourses = new Set(JSON.parse(registeredCoursesData));
-    }
-}
-
 // Initialize registration modal functionality
 function initRegistrationModal() {
     const modal = document.getElementById('registrationModal');
@@ -1037,17 +1029,7 @@ function initStudyMaterialsPage() {
         });
     }
     
-    // Add click handlers for course cards
-    document.querySelectorAll('.course-card').forEach(card => {
-        card.addEventListener('click', function() {
-            const courseId = this.getAttribute('data-course');
-            if (registeredCourses.has(courseId)) {
-                showCourseMaterials(courseId);
-            } else {
-                showNotification('ამ კურსისთვის რეგისტრაცია საჭიროა!', 'error');
-            }
-        });
-    });
+
 }
 
 // Main initialization
@@ -1059,6 +1041,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initGalleryModal();
     initCourseButtons();
     initRegistrationModal();
+    initStudyMaterialsPage();
     loadUserData();
     
     // Set up quiz navigation
