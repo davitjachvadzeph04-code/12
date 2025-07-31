@@ -1,0 +1,601 @@
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.float { 
+    animation: float 6s ease-in-out infinite; 
+}
+
+.spin { 
+    animation: spin 20s linear infinite; 
+}
+
+.planet-glow {
+    box-shadow: 0 0 50px rgba(59, 130, 246, 0.5);
+}
+
+.quiz-option {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.quiz-option:hover {
+    transform: translateX(10px);
+    background-color: rgba(59, 130, 246, 0.3) !important;
+}
+
+.quiz-option:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.correct-answer {
+    background-color: rgba(16, 185, 129, 0.2) !important;
+    border-color: rgb(16, 185, 129) !important;
+    color: #10b981 !important;
+}
+
+.wrong-answer {
+    background-color: rgba(239, 68, 68, 0.2) !important;
+    border-color: rgb(239, 68, 68) !important;
+    color: #ef4444 !important;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 2s infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
+}
+
+.hidden {
+    display: none !important;
+}
+
+.section {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.section.active {
+    opacity: 1;
+}
+
+/* Navigation */
+.mobile-menu {
+    display: none !important;
+}
+
+.mobile-nav-items {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    .desktop-menu {
+        display: none !important;
+    }
+    
+    .mobile-menu {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        padding: 0.5rem;
+        border-radius: 8px;
+        transition: background-color 0.2s ease;
+    }
+    
+    .mobile-menu svg {
+        color: #60A5FA;
+        transition: transform 0.3s ease;
+    }
+    
+    .mobile-menu.active svg {
+        transform: rotate(90deg);
+    }
+    
+    .mobile-nav-items {
+        display: none !important;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        background: rgba(30, 41, 59, 0.98);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid #60A5FA;
+        transform: translateY(-10px);
+        opacity: 0;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px rgba(96, 165, 250, 0.2);
+    }
+    
+    .mobile-nav-items.active {
+        display: block !important;
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .mobile-nav-items .nav-btn {
+        position: relative;
+        margin: 0.5rem;
+        border-radius: 8px;
+        background: rgba(30, 64, 175, 0.2);
+        border: 1px solid rgba(96, 165, 250, 0.1);
+        overflow: hidden;
+    }
+
+    .mobile-nav-items .nav-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(96, 165, 250, 0.1),
+            transparent
+        );
+        transition: left 0.5s ease;
+    }
+
+    .mobile-nav-items .nav-btn:hover::before {
+        left: 100%;
+    }
+
+    .mobile-nav-items .nav-btn.active {
+        background: rgba(37, 99, 235, 0.5);
+        border-color: #60A5FA;
+        box-shadow: 0 0 15px rgba(96, 165, 250, 0.3);
+    }
+}
+
+.nav-btn {
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.nav-btn:hover {
+    transform: translateY(-1px);
+    text-shadow: 0 0 8px rgba(96, 165, 250, 0.5);
+}
+
+.nav-btn.active {
+    background-color: rgba(37, 99, 235, 0.8);
+    box-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
+}
+
+/* Course buttons - removed duplicate styles */
+
+/* Gallery items */
+#gallery-grid > div {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#gallery-grid > div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
+}
+
+/* Modal styles */
+#imageModal {
+    backdrop-filter: blur(8px);
+}
+
+#imageModal img {
+    max-height: 70vh;
+    object-fit: contain;
+}
+
+/* Quiz progress bar */
+#progress-bar {
+    transition: width 0.3s ease;
+}
+
+/* Feedback animations */
+#feedback-container {
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Course modal styles */
+#courseModal {
+    backdrop-filter: blur(8px);
+}
+
+#courseModal .bg-blue-900\/90 {
+    background: linear-gradient(135deg, rgba(30,41,59,0.75) 60%, rgba(59,130,246,0.18) 100%) !important;
+    backdrop-filter: blur(24px) !important;
+    -webkit-backdrop-filter: blur(24px) !important;
+    border: 1.5px solid rgba(96, 165, 250, 0.18) !important;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18);
+}
+
+/* Button states */
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+button:not(:disabled):hover {
+    transform: translateY(-1px);
+}
+
+/* Responsive improvements */
+@media (max-width: 640px) {
+    .text-4xl {
+        font-size: 2rem;
+    }
+    
+    .text-xl {
+        font-size: 1.125rem;
+    }
+    
+    .grid-cols-1.md\:grid-cols-2.lg\:grid-cols-3 {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+}
+
+/* Stronger blur and softer background for course cards on the home page */
+#courses-grid > div {
+    background: rgba(30, 41, 59, 0.7) !important; /* Softer, less blue, more neutral */
+    backdrop-filter: blur(18px) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
+    border: 1.5px solid rgba(96, 165, 250, 0.18) !important;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+}
+
+#courses-grid > div:hover {
+    background: rgba(37, 99, 235, 0.25) !important;
+    box-shadow: 0 12px 32px 0 rgba(59, 130, 246, 0.18);
+}
+
+/* Enhanced modal styling */
+#registrationModal .bg-blue-900\/90,
+#courseModal .bg-blue-900\/90 {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 58, 138, 0.9) 100%) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(96, 165, 250, 0.2) !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Enhanced registration form styling */
+#registrationModal input,
+#registrationModal select {
+    color: white !important;
+    background: rgba(30, 64, 175, 0.2) !important;
+    border: 2px solid rgba(96, 165, 250, 0.3) !important;
+    border-radius: 12px !important;
+    padding: 12px 16px !important;
+    font-size: 16px !important;
+    transition: all 0.3s ease !important;
+}
+
+#registrationModal input:hover,
+#registrationModal select:hover {
+    border-color: rgba(96, 165, 250, 0.6) !important;
+    background: rgba(30, 64, 175, 0.3) !important;
+}
+
+#registrationModal input:focus,
+#registrationModal select:focus {
+    background: rgba(30, 64, 175, 0.4) !important;
+    border-color: rgba(96, 165, 250, 0.8) !important;
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2) !important;
+    transform: translateY(-1px) !important;
+}
+
+#registrationModal input::placeholder {
+    color: rgba(156, 163, 175, 0.6) !important;
+}
+
+#registrationModal select option {
+    background: rgba(15, 23, 42, 0.95) !important;
+    color: white !important;
+    padding: 8px !important;
+}
+
+#registrationModal label {
+    color: #e5e7eb !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    margin-bottom: 8px !important;
+    display: block !important;
+}
+
+#registrationModal h2 {
+    color: white !important;
+    font-size: 28px !important;
+    font-weight: 700 !important;
+    margin-bottom: 8px !important;
+}
+
+#registrationModal p {
+    color: #d1d5db !important;
+    font-size: 16px !important;
+    line-height: 1.6 !important;
+}
+
+#registrationModal button[type="submit"] {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
+    border: none !important;
+    padding: 14px 24px !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    border-radius: 12px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3) !important;
+}
+
+#registrationModal button[type="submit"]:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4) !important;
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%) !important;
+}
+
+/* Enhanced course modal styling */
+#courseModal h2 {
+    font-size: 32px !important;
+    font-weight: 700 !important;
+    background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+#courseModal .bg-blue-600\/20 {
+    background: rgba(59, 130, 246, 0.15) !important;
+    border: 1px solid rgba(59, 130, 246, 0.2) !important;
+    border-radius: 8px !important;
+    padding: 6px 12px !important;
+    font-weight: 500 !important;
+}
+
+#courseModal button {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
+    border: none !important;
+    padding: 12px 24px !important;
+    font-weight: 600 !important;
+    border-radius: 10px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3) !important;
+}
+
+#courseModal button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4) !important;
+}
+
+#courseModal button.bg-green-600 {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3) !important;
+}
+
+#courseModal button.bg-green-600:hover {
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4) !important;
+}
+
+/* Enhanced learning materials styling */
+#learning-materials {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 58, 138, 0.6) 100%) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 20px !important;
+    padding: 40px !important;
+    margin-top: 40px !important;
+    border: 1px solid rgba(96, 165, 250, 0.2) !important;
+}
+
+.course-materials .bg-blue-900\/20 {
+    background: rgba(30, 64, 175, 0.15) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(96, 165, 250, 0.2) !important;
+    border-radius: 16px !important;
+    transition: all 0.3s ease !important;
+}
+
+.course-materials .bg-blue-900\/20:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 12px 30px rgba(59, 130, 246, 0.2) !important;
+    border-color: rgba(96, 165, 250, 0.4) !important;
+}
+
+.course-materials .bg-blue-800\/30 {
+    background: rgba(30, 64, 175, 0.2) !important;
+    border: 1px solid rgba(96, 165, 250, 0.15) !important;
+    border-radius: 12px !important;
+    transition: all 0.3s ease !important;
+}
+
+.course-materials .bg-blue-800\/30:hover {
+    background: rgba(30, 64, 175, 0.3) !important;
+    border-color: rgba(96, 165, 250, 0.3) !important;
+    transform: translateX(4px) !important;
+}
+
+.course-materials button {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    border: none !important;
+    padding: 8px 16px !important;
+    font-weight: 500 !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3) !important;
+}
+
+.course-materials button:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4) !important;
+}
+
+/* Enhanced notification styling */
+.notification {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    border: 1px solid rgba(16, 185, 129, 0.3) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 25px rgba(16, 185, 129, 0.3) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+/* Enhanced course cards */
+#courses-grid > div {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(59, 130, 246, 0.1) 100%) !important;
+    backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(96, 165, 250, 0.2) !important;
+    border-radius: 20px !important;
+    transition: all 0.4s ease !important;
+    overflow: hidden !important;
+}
+
+#courses-grid > div:hover {
+    transform: translateY(-8px) scale(1.02) !important;
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3) !important;
+    border-color: rgba(96, 165, 250, 0.4) !important;
+}
+
+#courses-grid > div img {
+    transition: all 0.4s ease !important;
+}
+
+#courses-grid > div:hover img {
+    transform: scale(1.05) !important;
+}
+
+/* Enhanced course buttons */
+.course-btn {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
+    border: none !important;
+    padding: 12px 24px !important;
+    font-weight: 600 !important;
+    border-radius: 12px !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3) !important;
+    color: white !important;
+}
+
+.course-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4) !important;
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%) !important;
+}
+
+/* Override any green button styles for course buttons */
+.course-btn.bg-green-600,
+.course-btn.bg-green-700,
+.course-btn:hover.bg-green-600,
+.course-btn:hover.bg-green-700 {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
+}
+
+.course-btn:hover.bg-green-600,
+.course-btn:hover.bg-green-700 {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%) !important;
+}
+
+/* Force blue color for all course buttons regardless of other classes */
+.course-btn[class*="bg-green"],
+.course-btn[class*="green"] {
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
+    color: white !important;
+}
+
+.course-btn[class*="bg-green"]:hover,
+.course-btn[class*="green"]:hover {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%) !important;
+}
+
+/* Module modal styles */
+#moduleModal {
+    backdrop-filter: blur(8px);
+}
+
+#moduleModal .bg-blue-900\/90 {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 58, 138, 0.9) 100%) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(96, 165, 250, 0.2) !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Module content styles */
+.prose {
+    color: #e5e7eb;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.prose strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.prose ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+}
+
+.prose li {
+    margin-bottom: 0.5rem;
+}
+
+/* Module cards in materials page */
+#materials-modules > div {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(59, 130, 246, 0.1) 100%) !important;
+    backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(96, 165, 250, 0.2) !important;
+    border-radius: 20px !important;
+    transition: all 0.4s ease !important;
+}
+
+#materials-modules > div:hover {
+    transform: translateY(-4px) scale(1.02) !important;
+    box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3) !important;
+    border-color: rgba(96, 165, 250, 0.4) !important;
+}
